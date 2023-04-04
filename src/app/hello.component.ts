@@ -27,25 +27,27 @@ export class HelloComponent {
 
     this.options = {
       backgroundColor: 'rgb(240,240,240)',
-      color: ['purple', 'green'],
+      color: ['tomato', 'seagreen'],
       grid: {
         left: 0,
         top: 0,
         right: 0,
         bottom: 0,
       },
+      animation: false,
       legend: {
-        data: ['orders', 'transactions'],
+        y: 'bottom',
+        x: 'left',
+        data: ['AC', 'DC'],
         align: 'left',
         borderWidth: 0,
         borderRadius: 0,
         textStyle: {
-          color: 'red',
+          color: 'DarkSlateGray',
         },
       },
-      /*
       toolbox: {
-        // y: 'bottom',
+        y: 'bottom',
         feature: {
           magicType: {
             type: ['stack'],
@@ -56,7 +58,6 @@ export class HelloComponent {
           },
         },
       },
-      */
       //      tooltip: {},
       tooltip: {
         trigger: 'axis',
@@ -64,7 +65,7 @@ export class HelloComponent {
           type: 'shadow',
         },
         textStyle: {
-          color: 'orange',
+          color: 'SlateGray',
           fontWeight: '100',
           fontSize: '12',
         },
@@ -101,37 +102,28 @@ export class HelloComponent {
         splitLine: {
           show: true,
           lineStyle: {
-            color: 'orange',
+            color: 'DarkSlateGray',
             opacity: '0.2',
-            width: '5',
+            width: '1',
           },
         },
       },
       series: [
         {
-          name: 'transactions',
+          name: 'DC',
           type: 'bar',
           data: data1,
-          animationDelay: function (idx) {
-            return idx * 10;
-          },
         },
         {
-          name: 'orders',
+          name: 'AC',
           type: 'bar',
           data: data2,
-          animationDelay: function (idx) {
-            return idx * 10 + 100;
-          },
         },
       ],
-      //      animationDuration: 0,
-      //    animationDurationUpdate: 3000,
-      //  animationDuration: 100,
-      animationEasing: 'elasticOut',
-      animationDelayUpdate: function (idx) {
-        return idx * 5;
-      },
+      //animationEasing: 'elasticOut',
+      //animationDelayUpdate: function (idx) {
+      //  return idx * 5;
+      //},
     };
   }
 
@@ -141,12 +133,12 @@ export class HelloComponent {
       .subscribe((e) => {
         console.log('RESIZE');
         if (this.echartsIntance) {
-          this.echartsIntance.resize({
+          /*this.echartsIntance.resize({
             animation: {
               duration: 1500,
               easing: 'elasticOut',
             },
-          });
+          });*/
         }
       });
   }

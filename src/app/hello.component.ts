@@ -21,27 +21,28 @@ export class HelloComponent {
 
     for (let i = 0; i < 100; i++) {
       xAxisData.push('category' + i);
-      data1.push((Math.sin(i / 5) * (i / 5 - 10) + i / 6) * 5);
-      data2.push((Math.cos(i / 5) * (i / 5 - 10) + i / 6) * 5);
+      data1.push(((Math.sin(i / 5) * (i / 5 - 10) + i / 6) * 5).toFixed(2));
+      data2.push(((Math.cos(i / 5) * (i / 5 - 10) + i / 6) * 5).toFixed(2));
     }
 
     this.options = {
-      backgroundColor: 'rgb(240,240,240)',
+      //backgroundColor: 'rgb(240,240,240)',
       color: ['tomato', 'seagreen'],
       grid: {
         left: 0,
         top: 0,
         right: 0,
-        bottom: 0,
+        bottom: 50,
       },
       animation: false,
       legend: {
-        y: 'bottom',
+        bottom: 0,
+        //y: 'bottom',
         x: 'left',
         data: ['AC', 'DC'],
         align: 'left',
-        borderWidth: 0,
-        borderRadius: 0,
+        //borderWidth: 0,
+        //borderRadius: 0,
         textStyle: {
           color: 'DarkSlateGray',
         },
@@ -73,7 +74,7 @@ export class HelloComponent {
         backgroundColor: 'white',
         borderColor: 'transparent',
         borderWidth: 0,
-        formatter: (params) => `${Math.round(parseInt(params[0].value, 10))}`,
+        //formatter: (params) => `Value: ${Math.round(parseInt(params[0].value, 10))}`,
         //extraCssText: 'blue',
       },
       xAxis: {
@@ -91,7 +92,7 @@ export class HelloComponent {
       },
       yAxis: {
         axisLine: {
-          show: false,
+          show: true,
         },
         axisLabel: {
           show: false,
